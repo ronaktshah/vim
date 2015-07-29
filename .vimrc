@@ -229,7 +229,7 @@ noremap <F12> :set list!<CR>
 inoremap <F12> <Esc>:set list!<CR>a
 
 " Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
+" set pastetoggle=<F11>
 
 "-----------------------------------------
 " Moving around, tabs, windows and buffers
@@ -240,7 +240,7 @@ map k gk
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
-map <c-space> ?
+" map <C-space> ?
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -326,3 +326,16 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+
+"-----
+" Fold
+"-----
+
+set foldenable " Turn on folding
+set foldmethod=indent " Fold on the indent (damn you python)
+set foldlevel=100 " Don't autofold anything (but I can still fold manually)
+set foldopen=block,hor,mark,percent,quickfix,tag " what movements open folds
+function SimpleFoldText() " {
+    return getline(v:foldstart).' '
+endfunction " }
+set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)

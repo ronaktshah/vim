@@ -42,6 +42,7 @@ set cmdheight=2
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
 
+nore ; :
 
 "-----------------
 " Display Settings
@@ -339,3 +340,11 @@ function SimpleFoldText() " {
     return getline(v:foldstart).' '
 endfunction " }
 set foldtext=SimpleFoldText() " Custom fold text function (cleaner than default)
+
+"----------
+" Nerd Tree
+"----------
+
+" let NERDChristmasTree = 1
+" let NERDTreeMinimalUI = 1
+" let NERDTreeDirArrows = 0
